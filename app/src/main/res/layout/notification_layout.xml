@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:paddingVertical="10dp"
+    android:background="@drawable/backgroud_musicapp"
+    android:layout_height="120dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout
+        android:paddingStart="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/tv_title_app"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Ứng dụng"
+            android:textSize="18sp"
+            android:textColor="@color/white" />
+        <ImageView
+            android:id="@+id/im_noti_song"
+            android:layout_width="100dp"
+            android:scaleType="fitXY"
+            android:layout_height="match_parent"
+            android:src="@drawable/bg_bank"/>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_weight="1"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_alignParentTop="true"
+            android:layout_width="match_parent"
+            android:layout_marginStart="10dp"
+            android:gravity="start"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/tv_noti_title"
+                app:layout_constraintStart_toEndOf="@id/im_noti_song"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tên bài hát"
+                android:textSize="20sp"/>
+            <TextView
+                android:id="@+id/tv_noti_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="15sp"
+                android:text="Ca sĩ"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_alignParentBottom="true"
+            android:layout_width="match_parent"
+            android:weightSum="3"
+            android:layout_marginStart="-10dp"
+            android:layout_gravity="center_vertical"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <ImageView
+                android:layout_weight="1"
+                android:id="@+id/imv_privious"
+                android:layout_width="20dp"
+                android:padding="10dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:src="@drawable/previous"/>
+
+            <ImageView
+                android:id="@+id/start_or_pause_noti_song"
+                android:layout_width="20dp"
+                android:padding="10dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:src="@drawable/play" />
+            <ImageView
+                android:layout_weight="1"
+                android:layout_width="20dp"
+                android:padding="10dp"
+                android:layout_height="40dp"
+                android:id="@+id/imv_next"
+                android:layout_gravity="center"
+                android:src="@drawable/next" />
+            <ImageView
+                android:id="@+id/imv_close_service"
+                android:layout_width="40dp"
+                android:layout_gravity="center"
+                android:layout_height="40dp"
+                android:src="@drawable/ic_close"
+                android:layout_marginStart="20dp"/>
+        </LinearLayout>
+    </RelativeLayout>
+
+
+
+
+
+</LinearLayout>

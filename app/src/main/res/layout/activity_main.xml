@@ -3,103 +3,122 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:background="@drawable/backgroud_musicapp"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/carv_imagemusic"
-        android:layout_width="300dp"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rcv_list_music"
+        android:padding="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="100dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_height="300dp"
-        app:cardCornerRadius="300dp">
-        <ImageView
-            android:id="@+id/imv_song"
-            android:layout_width="wrap_content"
-            android:scaleType="centerCrop"
-            android:layout_height="wrap_content"
-            android:src="@drawable/bg_bank"/>
-    </androidx.cardview.widget.CardView>
-    <TextView
-        android:id="@+id/title_song"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/carv_imagemusic"
-        android:text="Chiếc khăn gió ấm"
-        android:textSize="25sp"
-        android:layout_marginTop="10dp"
-        android:fontFamily="sans-serif-medium"
-        android:textColor="@color/white"
-        android:gravity="center"/>
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/carv_imagemusic"
-        android:text="Khánh Phương"
-        android:textSize="20sp"
-        android:layout_marginTop="45dp"
-        android:textColor="#D3C9C9"
-        android:gravity="center"/>
+        app:layout_constraintBottom_toTopOf="@id/ln_bottombar"/>
     <LinearLayout
         android:id="@+id/ln_bottombar"
         android:layout_width="match_parent"
+        android:paddingVertical="15dp"
         android:gravity="center"
-        android:layout_marginHorizontal="20dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="100dp"
-        android:orientation="horizontal">
-        <ImageView
-            android:id="@+id/random"
-            android:layout_weight="1"
-            android:layout_width="35dp"
-            android:paddingVertical="5dp"
-            android:layout_height="35dp"
-            android:src="@drawable/random"/>
-        <ImageView
-            android:id="@+id/previous"
-            android:layout_weight="1"
-            android:layout_marginHorizontal="10dp"
-            android:layout_width="35dp"
-            android:paddingVertical="5dp"
-            android:layout_height="35dp"
-            android:src="@drawable/previous"/>
-        <ImageView
-            android:id="@+id/play"
-            android:layout_weight="1"
-            android:layout_marginHorizontal="10dp"
-            android:layout_width="50dp"
-            android:paddingVertical="5dp"
-            android:layout_height="50dp"
-            android:src="@drawable/play"/>
-        <ImageView
-            android:id="@+id/next"
-            android:layout_weight="1"
-            android:layout_marginHorizontal="10dp"
-            android:layout_width="35dp"
-            android:paddingVertical="5dp"
-            android:layout_height="35dp"
-            android:src="@drawable/next"/>
-        <ImageView
-            android:id="@+id/repeat"
-            android:layout_weight="1"
-            android:layout_width="35dp"
-            android:paddingVertical="5dp"
-            android:layout_height="35dp"
-            android:src="@drawable/repeat"/>
-    </LinearLayout>
-    <ImageView
-        android:id="@+id/stop"
-        app:layout_constraintTop_toBottomOf="@id/ln_bottombar"
-        android:layout_width="40dp"
-        android:layout_marginTop="20dp"
-        android:src="@drawable/stop"
+        android:background="@drawable/backgroud_musicapp"
+        android:paddingHorizontal="5dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_height="40dp"/>
+        android:layout_height="100dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:orientation="horizontal">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <androidx.cardview.widget.CardView
+                android:id="@+id/carv_imagemusic"
+                android:layout_width="60dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_height="60dp"
+                app:cardCornerRadius="60dp">
+                <ImageView
+                    android:id="@+id/imv_song"
+                    android:layout_width="wrap_content"
+                    android:scaleType="centerCrop"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/bg_bank"/>
+            </androidx.cardview.widget.CardView>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/title_song"
+                    android:layout_width="match_parent"
+                    android:ellipsize="marquee"
+                    android:marqueeRepeatLimit="marquee_forever"
+                    android:singleLine="true"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
+                    android:scrollHorizontally="true"
+                    android:layout_height="wrap_content"
+                    android:text="Chiếc khăn gió ấm"
+                    android:textSize="16sp"
+                    android:layout_gravity="start"
+                    android:fontFamily="sans-serif-medium"
+                    android:textColor="@color/white" />
+                <TextView
+                    android:id="@+id/tv_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@id/carv_imagemusic"
+                    android:text="Khánh Phương"
+                    android:textSize="14sp"
+                    android:textColor="#D3C9C9"
+                    android:gravity="start"/>
+            </LinearLayout>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:layout_marginBottom="3dp"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:id="@+id/previous"
+                android:layout_weight="1"
+                android:layout_width="40dp"
+                android:padding="10dp"
+                android:layout_height="40dp"
+                android:src="@drawable/previous"/>
+            <ImageView
+                android:id="@+id/play"
+                android:layout_weight="1"
+                android:layout_width="40dp"
+                android:padding="5dp"
+                android:layout_marginStart="5dp"
+                android:layout_height="40dp"
+                android:src="@drawable/play"/>
+            <ImageView
+                android:id="@+id/next"
+                android:layout_weight="1"
+                android:layout_marginStart="5dp"
+                android:layout_width="40dp"
+                android:padding="10dp"
+                android:layout_height="40dp"
+                android:src="@drawable/next"/>
+            <ImageView
+                android:id="@+id/stop"
+                android:padding="5dp"
+                android:layout_marginStart="5dp"
+                app:layout_constraintTop_toBottomOf="@id/ln_bottombar"
+                android:layout_width="40dp"
+                android:src="@drawable/ic_close"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_height="40dp"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

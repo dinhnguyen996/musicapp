@@ -18,6 +18,7 @@
             android:name=".ServiceMusic"
             android:enabled="true"
             android:exported="true" />
+        <receiver android:name=".MyReciver"/>
 
         <activity
             android:name=".MainActivity"
